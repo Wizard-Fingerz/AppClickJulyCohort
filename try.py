@@ -1,5 +1,7 @@
 print("hello")
 
+x = 6
+y = 7
+z = x + 9
 
-y = 9
-z = x + 3
+print(z)
