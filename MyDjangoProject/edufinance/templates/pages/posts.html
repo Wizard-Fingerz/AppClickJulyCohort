@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+
+
+{% block title %}
+Posts
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<ul>
+    {% for post in posts %}
+        <li>{{post.title}}</li>
+    {% empty %}
+        <li>No post found</li>
+    {% endfor %}
+    
+</ul>
+
+
+{% endblock %}

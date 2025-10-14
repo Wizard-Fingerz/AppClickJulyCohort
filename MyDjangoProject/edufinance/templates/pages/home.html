@@ -1,3 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block content %}
+
+
 <h1>Welcome to Edufinance, {{name}}</h1>
 <p>How are you doing today, {{name}}</p>
 
@@ -12,3 +22,6 @@
         <li>{{ course.name }} - {{ course.description }}</li>
     {% endfor %}
 </ul>
+
+
+{% endblock %}
