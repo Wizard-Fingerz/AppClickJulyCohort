@@ -173,8 +173,7 @@ def product_detail(request, pk):
   <h1>{{ product.name }}</h1>
   <p>{{ product.description }}</p>
 {% endblock %}
-```
-
+ 
 
 ---
 

@@ -1,24 +1,21 @@
 
 {% extends "base.html" %}
-
-
 {% block title %}
 Posts
 {% endblock %}
-
-
 {% block content %}
-
-
-
-<ul>
+<div>
     {% for post in posts %}
-        <li>{{post.title}}</li>
+        <div>
+            
+           <h1>{{post.title}}</h1>
+            <p>{{post.body}}</p>
+
+            <a href="{% url 'post_details' product.pk %}">Read More</a>
+        </div>
+        
     {% empty %}
         <li>No post found</li>
-    {% endfor %}
-    
-</ul>
-
-
+    {% endfor %}   
+</div>
 {% endblock %}
