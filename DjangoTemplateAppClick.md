@@ -211,7 +211,34 @@ class ProductDetail(DetailView):
 ## 6. Template Tags & Filters (Built-in)
 
 * URL reversing: `{% url 'product_detail' product.pk %}`
-* Static files: `{% load static %} <img src="{% static 'img/logo.png' %}">`
+* Static files in Django: To include CSS, JavaScript, or images that are stored in your project's `static` directory, first load the static template tag at the top of your template: `{% load static %}`.
+
+- **CSS**: Reference stylesheets in the `<head>` of your HTML.
+  ```html
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  ```
+
+- **JavaScript**: Link JS files, typically before the closing `</body>`.
+  ```html
+  <script src="{% static 'js/scripts.js' %}"></script>
+  ```
+
+- **Images**: Use the `static` tag for image URLs.
+  ```html
+  <img src="{% static 'img/logo.png' %}" alt="Logo">
+  ```
+
+- **External CSS/JS**: For styles or scripts hosted outside your project (like from a CDN), use the full URL directly.
+  ```html
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  ```
+
+**Summary:**  
+- Use `{% load static %}` to access static files in your Django app.  
+- Use `{% static 'path/to/file' %}` to build URLs for files in your `static/` directories.  
+- External files (CSS/JS/images) should be linked with their complete URL without `{% static %}`.
 * i18n: `{% trans "Hello" %}`
 
 ---

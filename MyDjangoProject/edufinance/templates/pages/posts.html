@@ -11,8 +11,7 @@ Posts
            <h1>{{post.title}}</h1>
             <p>{{post.body}}</p>
 
-            <a href="{% url 'post_details' product.pk %}">Read More</a>
-        </div>
+            <a href="{% url 'post_detail' post.pk %}">Read More</a>
         
     {% empty %}
         <li>No post found</li>

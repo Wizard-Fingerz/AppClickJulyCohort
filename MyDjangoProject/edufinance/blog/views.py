@@ -1,6 +1,8 @@
 from turtle import title
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
+
+from .forms import PostForm
 from .models import Post
 
 
@@ -20,5 +22,15 @@ def post_list(request):
     return render(request, 'pages/posts.html', {'posts': posts})
 
 def post_detail(request, pk):
-    post = get_object_or_404(Post, pk)
-    return render(request, 'pages/post_details', {'post': post})
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'pages/post_details.html', {'post': post})
+
+
+def post_form(request):
+    form = PostForm(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('home')
+    return render(request, 'pages/post_form.html', {'form': form})
+
