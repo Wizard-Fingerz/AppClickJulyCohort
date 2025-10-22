@@ -20,9 +20,12 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-
+    def user_first_name(self):
+        return self.user.first_name
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'comment_user')
+    author = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'post_owner')
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     message = models.TextField()
     created_at = models.DateTimeField()
@@ -32,3 +35,8 @@ class Comment(models.Model):
 class Reply(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField()
+
+    
+    class Meta:
+        # ordering = ['name']
+        verbose_name_plural = "Replies"
