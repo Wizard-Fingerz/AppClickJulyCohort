@@ -10,3 +10,6 @@ class UserView(View):
 
     def get(self, request):
         return HttpResponse("Hello from Class Based View in User")
+
+def login(request):
+    return render(request, 'pages/login.html')
